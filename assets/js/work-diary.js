@@ -1,9 +1,8 @@
-
 var email = localStorage.getItem("email");
-var token = localStorage.getItem("token"); 
+var token = localStorage.getItem("token");
 
 const monthList = document.getElementById("month");
-const currentMonth = new Date().getMonth()+1;
+const currentMonth = new Date().getMonth() + 1;
 
 monthList.selectedIndex = currentMonth;
 monthlyStat(monthList.value)
@@ -11,7 +10,8 @@ monthList.addEventListener("change", function () {
     const selectedMonth = this.value;
     monthlyStat(selectedMonth);
 });
-function monthlyStat(currentMonth){
+
+function monthlyStat(currentMonth) {
 
     const acceptData = {
         email: email,
@@ -20,13 +20,13 @@ function monthlyStat(currentMonth){
     };
 
     fetch("https://senderr.in/API_main/homeStats.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            'Authorization': 'Bearer ' + token
-        },
-        body: JSON.stringify(acceptData)
-    })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(acceptData)
+        })
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
@@ -34,7 +34,7 @@ function monthlyStat(currentMonth){
             return response.json();
         })
         .then(data => {
-            if(data!="" && data.success!=0){
+            if (data != "" && data.success != 0) {
                 console.log(data)
                 document.getElementById("totalAllotted").textContent = "Allotted: " + data.totalAlloted
                 document.getElementById("totalAllottedTh").textContent = "Theory: " + data.allotedTh
@@ -45,8 +45,8 @@ function monthlyStat(currentMonth){
                 document.getElementById("totalNotTaken").textContent = "Not Taken: " + data.totalNotTaken
                 document.getElementById("notTakenTh").textContent = "Theory: " + data.notTakenTh
                 document.getElementById("notTakenPr").textContent = "Practical: " + data.notTakenPr
-            }else{
-
+            } else {
+                alert(data.message)
                 document.getElementById("totalAllotted").textContent = "Allotted: " + 0
                 document.getElementById("totalAllottedTh").textContent = "Theory: " + 0
                 document.getElementById("totalAllottedPr").textContent = "Practical: " + 0
@@ -65,6 +65,7 @@ function monthlyStat(currentMonth){
 }
 
 showDiary()
+
 function showDiary() {
     const showDiaryData = {
         email: email
@@ -73,13 +74,13 @@ function showDiary() {
     console.log(showDiaryData)
 
     fetch("https://senderr.in/API_main/workDiaryHome.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            'Authorization': 'Bearer ' + token
-        },
-        body: JSON.stringify(showDiaryData)
-    })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(showDiaryData)
+        })
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
@@ -93,11 +94,12 @@ function showDiary() {
             // table.innerHTML == ""
             var k = 0;
             // document.getElementById("spinner").style.display = "none"
-            data.data.forEach(element => {
-                var dayName = getDayName(element.timestamp)
-                k += 1;
+            if (data.data) {
+                data.data.forEach(element => {
+                    var dayName = getDayName(element.timestamp)
+                    k += 1;
 
-                var row = `
+                    var row = `
                             <form  style="background:#ffff;border-radius:10px;margin-top:10px;padding:10px" class="container2 container diary">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="row ml-1">
@@ -183,8 +185,10 @@ function showDiary() {
                                     <p><i class="dotted ml-1">${element.topicsCovered}</i></p>
                                 </div>
                             </form>`;
-                table.innerHTML += row;
-            });
+                    table.innerHTML += row;
+                });
+            }
+
             if (k > 0) {
                 // document.getElementById("showDiaryMain").style.display = "block"
             } else {

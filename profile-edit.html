@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>Edit Profile</title>
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/profile-edit.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/profile-edit.css" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css" />
 </head>
+
 <body>
-	<section class="py-5 ">
+	<section class="py-5">
+		<!-- Popup -->
+    <div class="popup-overlay" style="display: none;"  id="popupOverlay"></div>
+    <div class="popup" style="display: none;" id="popup">
+      <div class="popup-close" onclick="closePopup()">&times;</div>
+      <div class="popup-content">
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+        <div class="status-label" id="statusLabel">Image uploading...</div>
+        <button class="verify-button" id="openVerifyOtpBtn" style="display: none;"
+          onclick="window.open('/otp-verification.html', '_blank');">Verify Otp</button>
+      </div>
+    </div>
+		<!-- The modal -->
+		<div id="imageUploadModal" style="display: none;" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeImageUploadPopup()">&times;</span>
+				<h3>Upload Profile Picture</h3>
+				<input type="file" id="imageInput" />
+				<button style="margin-top: 20px;" onclick="UploadImage()">Upload</button>
+			</div>
+		</div>
+		<!-- ... -->
 		<div class="container">
 			<h1 class="mb-5">Edit Profile</h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="/assets/images/avtar/Purab.jpg" alt="Image" class="shadow">
+							<img src="/assets/images/loading.gif" id="profilePic" alt="Image" class="shadow" />
 						</div>
-						<h4 class="text-center"><label id="nameEdit">Dr. Rajib Das</label></h4>
+						<h4 class="text-center">
+							<label id="nameEdit"></label>
+						</h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
-							<i class="fa fa-home text-center mr-1"></i> 
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
+							aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i>
 							Account
 						</a>
 					</div>
@@ -34,65 +64,84 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Name</label>
-								  	<input type="text" id="nameEdit2" class="form-control" value="">
+									<label>Name</label>
+									<input type="text" id="nameEdit2" class="form-control" value="" />
 								</div>
 							</div>
-					
+
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Email</label>
-								  	<input type="email" id="emailEdit" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Mobile</label>
-								  	<input type="number" id="mobileEdit" class="form-control" value="+91 9876543215">
+									<label>Email</label>
+									<input type="email" id="emailEdit" class="form-control" value="" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Select Department</label>
+									<label>Mobile</label>
+									<input type="number" id="mobileEdit" class="form-control" value="+91 9876543215" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Select Department</label>
 									<select id="departmentEdit" name="department" required>
-										<option value="">Select Department</option>
-										<option value="Computer Science">Computer Science and Application</option>
-										<option value="Electronics">Botany & Biotech</option>
+										<option value="Select Department">
+											Select Department
+										</option>
+										<option value="Computer Science and Application">
+											Computer Science and Application
+										</option>
+										<option value="Botany & Biotech">Botany & Biotech</option>
 										<option value="Mathematics">Mathematics</option>
 										<option value="Physics">Physics</option>
-										<option value="Physics">Statistics</option>
-										<option value="Physics">Zoology</option>
-										<option value="Physics">Ecology and Env.Sc</option>
-										<option value="Physics">Arabic</option>
-										<option value="Physics">Bengali</option>
-										<option value="Physics">Economics</option>
-										<option value="Physics">English</option>
-										<option value="Physics">History</option>
-										<option value="Physics">Philosophy</option>
-										<option value="Physics">Political Science</option>
-										<option value="Physics">Sanskrit</option>
-										<option value="Physics">Commerce</option>
-										<option value="Physics">Computer Center</option>
-									  </select>
+										<option value="Statistics">Statistics</option>
+										<option value="Zoology">Zoology</option>
+										<option value="Ecology and Env.Sc">
+											Ecology and Env.Sc
+										</option>
+										<option value="Arabic">Arabic</option>
+										<option value="Bengali">Bengali</option>
+										<option value="Economics">Economics</option>
+										<option value="English">English</option>
+										<option value="History">History</option>
+										<option value="Philosophy">Philosophy</option>
+										<option value="Political Science">
+											Political Science
+										</option>
+										<option value="Sanskrit">Sanskrit</option>
+										<option value="Commerce">Commerce</option>
+										<option value="Computer Center">Computer Center</option>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Select Designation</label>
+									<label>Select Designation</label><br />
 									<select id="designationEdit" name="designation" required>
-										<option value="">Select Designation</option>
-										<option value="Assistant Professor">Assistant Professor</option>
-										<option value="Associate Professor">Associate Professor</option>
+										<option value="Select Designation">
+											Select Designation
+										</option>
+										<option value="Assistant Professor">
+											Assistant Professor
+										</option>
+										<option value="Associate Professor">
+											Associate Professor
+										</option>
 										<option value="Guest Faculty">Guest Faculty</option>
-										<option value="Head Of the Department">Head Of the Department</option>
-									  </select>
+										<option value="Head Of the Department">
+											Head Of the Department
+										</option>
+									</select>
 								</div>
 							</div>
-							
 						</div>
 						<div>
-							<button class="btn btn-primary" onclick="update()">Update</button>
-							<button  onclick="window.open('/user-profile.html','_self')" class="btn btn-light">Cancel</button>
+							<button class="btn btn-primary" onclick="update()">
+								Update
+							</button>
+							<button onclick="window.open('/user-profile.html','_self')" class="btn btn-light">
+								Cancel
+							</button>
 						</div>
 					</div>
 				</div>
@@ -106,5 +155,22 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-storage-compat.js"></script>
+
+    <script src="/assets/js/upload-image.js"></script>
+    <script>
+      // Open popup
+      function openPopup() {
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("popupOverlay").style.display = "block";
+      }
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("popupOverlay").style.display = "none";
+      }
+    </script>
 </body>
+
 </html>

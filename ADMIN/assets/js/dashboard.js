@@ -1,4 +1,3 @@
-console.log(localStorage.getItem("token"))
 
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
@@ -33,7 +32,7 @@ function getTeacherList() {
             d.forEach(element => {
                 k++;
                 var row = `<tr>
-						<td>${k}</td>
+						<td>${element.teacherId}</td>
 						<td>${element.name}</td>
 						<td>${element.email}</td>
 						<td>

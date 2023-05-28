@@ -1,4 +1,4 @@
-var teacherId=getUrl("teacherId");
+var teacherId = getUrl("teacherId");
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
 
@@ -27,8 +27,8 @@ function getTeacherDetails() {
         .then(data => {
             // handle successful profile retrieval
             console.log(data.data);
-            var d= data.data;
-            document.getElementById("name").textContent=d.name;
+            var d = data.data;
+            document.getElementById("name").textContent = d.name;
             document.getElementById("department").textContent = d.department;
             document.getElementById("loaderMain").style.display = "none"
             document.getElementById("spinner").style.display = "none"
@@ -44,7 +44,7 @@ var from = document.getElementById("from");
 var to = document.getElementById("to");
 
 function showDiary() {
-    if(from.value==""||from.value==null){
+    if (from.value == "" || from.value == null) {
         alert("Select starting date");
         return
     }
@@ -56,8 +56,8 @@ function showDiary() {
     const showDiaryData = {
         email: email,
         teacherId: teacherId,
-        from:from.value,
-        to:to.value
+        from: from.value,
+        to: to.value
     };
 
     console.log(showDiaryData)
@@ -83,7 +83,8 @@ function showDiary() {
             // table.innerHTML == ""
             var k = 0;
             document.getElementById("spinner").style.display = "none"
-            data.data.forEach(element => {
+            if (data.data) {
+                data.data.forEach(element => {
 
                     k += 1;
 
@@ -174,7 +175,8 @@ function showDiary() {
                                 </div>
                             </form>`;
                     table.innerHTML += row;
-            });
+                });
+            }
             if (k > 0) {
                 document.getElementById("showDiaryMain").style.display = "block"
             } else {

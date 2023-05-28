@@ -25,6 +25,7 @@ function otpSend(){
         if(data.success=="1"){
             // handle successful login
             console.log(data);
+          localStorage.setItem("email", email);
             window.open("/change-password.html","_self");
         }else{
             alert(data.message);

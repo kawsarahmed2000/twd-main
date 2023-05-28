@@ -80,12 +80,13 @@ function showDiary() {
             // table.innerHTML == ""
             var k = 0;
             document.getElementById("spinner").style.display = "none"
-            data.data.forEach(element => {
+            if (data.data) {
+                data.data.forEach(element => {
 
-                var dayName = getDayName(element.timestamp)
-                k += 1;
+                    var dayName = getDayName(element.timestamp)
+                    k += 1;
 
-                var row = `
+                    var row = `
                             <form class="container2 container diary">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="row ml-1">
@@ -171,8 +172,9 @@ function showDiary() {
                                     <p><i class="dotted ml-1">${element.topicsCovered}</i></p>
                                 </div>
                             </form>`;
-                table.innerHTML += row;
-            });
+                    table.innerHTML += row;
+                });
+            }
             if (k > 0) {
                 document.getElementById("showDiaryMain").style.display = "block"
             } else {
