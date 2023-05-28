@@ -13,10 +13,12 @@ codes[0].focus()
 //     })
 // })
 // localStorage.setItem("email","daspurab80@gmail.com")
+var email = localStorage.getItem("email");
+document.getElementById("labels").textContent = `We emailed you the six digit code to ${email} <br />
+      Enter the code below to confirm your email address`
 function otpVerification(){
   var type = localStorage.getItem("type")
   var otp = document.getElementById("otp").value;
-  var email = localStorage.getItem("email");
  
     
     const loginData = {
