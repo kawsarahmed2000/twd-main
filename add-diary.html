@@ -1,0 +1,613 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/add-diary.css">
+    <style>
+        .dotted>u {
+            border-bottom: 1px dashed #999;
+            text-decoration: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        td {
+            padding-left: 1 !important;
+            padding-right: 1 !important;
+            /* margin: 0 !important; */
+
+        }
+
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">ADD DIARY</a></div>
+
+            <a href="/created_by/index.html" class="action_btn">Created By</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid d-flex flex-column mt-3">
+            <form method="post" class="jumbotron d-flex flex-column">
+                <input id="uno" name="uno" value="28" hidden="">
+                <!-- Date And Day -->
+                <div class="row">
+                    <div class="col-auto row">
+                        <strong class="col-auto">Date:</strong>
+                        <input id="date" name="date" type="date" class="col dotted" onchange="changeDay(this.value)" />
+                    </div>
+                    <div class="col-auto row">
+                        <strong class="col-auto">Day:</strong>
+                        <p class="col dotted"><u id="day"></u></p>
+                    </div>
+                    <div class="mt-2 col-auto row">
+                        <strong class="col-auto">Session:</strong>
+                        <input id="session" type="text" class="col dotted " value="2023-2024" name="session">
+                    </div>
+                </div>
+                <!-- No Of Periods -->
+                <h5 class="text-center">No. Of Periods</h5>
+                <table class="table">
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <h6 class="text-center">Alloted</h6>
+                                <table class="table table-info table-bordered">
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Th</th>
+                                            <th scope="row">Pr</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="allotedTh" class="form-select" name="al_th">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="allotedPr" class="form-select" name="al_pr">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td>
+                                <h6 class="text-center">Taken</h6>
+                                <table class="table table-success table-bordered">
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Th</th>
+                                            <th scope="row">Pr</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="takenTh" class="form-select" name="ta_th">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="takenPr" class="form-select" name="ta_pr">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td>
+                                <h6 class="text-center">Not Taken</h6>
+                                <table class="table table-primary table-striped table-bordered">
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Th</th>
+                                            <th scope="row">Pr</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="notTakenTh" class="form-select" name="nta_th">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group pl-2">
+                                                    <select id="notTakenPr" class="form-select" name="nta_pr">
+                                                        <option selected="">Select</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- classes Held -->
+                <h5 class="text-center">Classes Held</h5>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Add
+                    </button>
+                    <ul class="dropdown-menu p-2">
+                        <li><strong>Core Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H1</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H2</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H3</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H4</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H5</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H6</a></li>
+                        <li><strong>Core Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H1-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H2-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H3-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H4-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H5-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">H6-P</a></li>
+                        <li><strong>DSC-GE Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D1</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D2</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D3</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D4</a></li>
+                        <li><strong>DSC-GE Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D1-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D2-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D3-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D4-P</a></li>
+                        <li><strong>SEC</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">S3</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">S4</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">S5</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">S6</a></li>
+                        <li><strong>DSE Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D5</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D6</a></li>
+                        <li><strong>DSE Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D5-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">D6-P</a></li>
+                        <li><strong>AECC</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">EC1</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">MIL1</a></li>
+                        <li><strong>Es</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ES2</a></li>
+                        <li><strong>HS Theory (XI/XII)</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">PHYS</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">CHEM</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">MATHS</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">CSAA</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ZOOLOGY</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">BOTANY</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ENV</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ENG</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ALT-ENG</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">BENG</a></li>
+                        <li><strong>HS Practical (XI/XII)</strong></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">PHYS-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">CHEM-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">CSAA-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">ZOOLOGY-P</a></li>
+                        <li><a class="dropdown-item" onclick="addHeldClasses(this)">BOTANY-P</a></li>
+
+                    </ul>
+                </div>
+                <table class="table">
+                    <tbody>
+
+
+                        <tr>
+
+                        </tr>
+                        <tr>
+                            <td class="" id="">
+                                <div id="classesHeld">
+
+                                </div>
+                                <!--  -->
+
+                                <input type="hidden" name="held" id="held">
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+
+                <!-- classes Not held -->
+                <h5 class="text-center">Classes Not Held</h5>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Add
+                    </button>
+                    <ul class="dropdown-menu p-2">
+                        <li><strong>Core Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H1</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H2</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H3</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H4</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H5</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H6</a></li>
+                        <li><strong>Core Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H1-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H2-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H3-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H4-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H5-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">H6-P</a></li>
+                        <li><strong>DSC-GE Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D1</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D2</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D3</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D4</a></li>
+                        <li><strong>DSC-GE Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D1-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D2-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D3-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D4-P</a></li>
+                        <li><strong>SEC</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">S3</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">S4</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">S5</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">S6</a></li>
+                        <li><strong>DSE Theory Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D5</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D6</a></li>
+                        <li><strong>DSE Practical Papers</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D5-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">D6-P</a></li>
+                        <li><strong>AECC</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">EC1</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">MIL1</a></li>
+                        <li><strong>Es</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ES2</a></li>
+                        <li><strong>HS Theory (XI/XII)</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">PHYS</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">CHEM</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">MATHS</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">CSAA</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ZOOLOGY</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">BOTANY</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ENV</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ENG</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ALT-ENG</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">BENG</a></li>
+                        <li><strong>HS Practical (XI/XII)</strong></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">PHYS-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">CHEM-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">CSAA-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">ZOOLOGY-P</a></li>
+                        <li><a class="dropdown-item" onclick="addNotHeldClasses(this)">BOTANY-P</a></li>
+
+                    </ul>
+                </div>
+                <table class="table">
+                    <tbody>
+
+
+                        <tr>
+
+                        </tr>
+                        <tr>
+                            <td class="" id="">
+                                <div id="classesNotHeld">
+
+                                </div>
+                                <!--  -->
+                                <input type="hidden" name="notheld" id="notheld">
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <!-- Remarks -->
+                <div class="input-group my-2">
+                    <span class="input-group-text">Remarks</span>
+                    <textarea id="remarks" class="form-control" aria-label="With textarea" maxlength="50"
+                        name="remarks"></textarea>
+                </div>
+
+                <!-- Topics Covered -->
+
+                <div class="input-group my-2">
+                    <span class="input-group-text">Topics Covered in the class</span>
+                    <textarea id="topics" class="form-control" aria-label="With textarea" maxlength="500"
+                        style="width: 100% !important" name="topics"></textarea>
+                </div>
+
+
+                <div class="d-flex flex-row justify-content-around">
+
+                    <button type="button" onclick="addDiary()" class="btn btn-primary">Submit</button>
+                    <a href="work-diary.html" class="btn btn-danger btn-xs btn-outline">Go Back</a>
+                </div>
+            </form>
+
+
+
+        </div>
+
+    </main>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+    </script>
+    <script>
+        // jQuery.noConflict();
+        function addHeldClasses(val) {
+            var x = document.getElementById("classesHeld");
+            x.innerHTML +=
+                '<button type="button" class="btn btn-success btn-lg p-1 m-1" onclick="removeHeldClasses(this)" id="' +
+                val.innerText + '">' + val.innerText + ' <i class="bi bi-x mr-0"></i></button>';
+            document.getElementById('held').value += val.innerText + "; ";
+        }
+
+        function addNotHeldClasses(val) {
+            var x = document.getElementById("classesNotHeld");
+            x.innerHTML +=
+                '<button type="button" class="btn btn-danger btn-lg p-1 m-1" onclick="removeNotHeldClasses(this)" id="' +
+                val.innerText + '">' + val.innerText + ' <i class="bi bi-x mr-0"></i></button>';
+            document.getElementById('notheld').value += val.innerText + "; ";
+        }
+
+        function removeHeldClasses(val) {
+            var par = val.parentNode;
+            par.removeChild(val);
+            let temp = document.getElementById('held').value;
+            var str = val.innerText.trim() + "; ";
+            document.getElementById('held').value = temp.replace(str, '');
+
+        }
+
+        function removeNotHeldClasses(val) {
+            var par = val.parentNode;
+            par.removeChild(val);
+            let temp = document.getElementById('notheld').value;
+            var str = val.innerText.trim() + "; ";
+            document.getElementById('notheld').value = temp.replace(str, '');
+
+        }
+
+        function changeDay(val) {
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const date = new Date(val);
+            let ele = document.getElementById("day");
+            ele.innerHTML = weekday[date.getDay()];
+
+
+        }
+        $("#date").change(function () {
+            $.ajax({
+                type: "GET",
+                url: "backend-script.php?action=date&date=" + $(this).val() + "&uno=" + $('#uno').val(),
+                dataType: "text",
+                success: function (data) {
+                    data = JSON.parse(data);
+                    if (data["sno"] != "") {
+                        $("#session").val(data["session"]);
+                        $("#topics").val(data["topics"]);
+                        $("#remarks").val(data["remarks"]);
+
+                        let alloted = data['alloted'];
+                        alloted = alloted.replaceAll(" ", "");
+                        alloted = alloted.replace("Th:", "");
+                        alloted = alloted.replace("Pr:", " ");
+                        alloted = alloted.split(" ");
+                        $("#alloted-th").val(alloted[0]);
+                        $("#alloted-pr").val(alloted[1]);
+
+                        let taken = data['taken'];
+                        taken = taken.replaceAll(" ", "");
+                        taken = taken.replace("Th:", "");
+                        taken = taken.replace("Pr:", " ");
+                        taken = taken.split(" ");
+                        $("#taken-th").val(taken[0]);
+                        $("#taken-pr").val(taken[1]);
+
+                        let not = data['not-taken'];
+
+                        not = not.replaceAll(" ", "");
+                        not = not.replace("Th:", "");
+                        not = not.replace("Pr:", " ");
+                        not = not.split(" ");
+                        $("#not-th").val(not[0]);
+                        $("#not-pr").val(not[1]);
+
+
+                        let held = data["held"];
+                        if (held != "") {
+                            $("#held").val(held);
+                            held = held.replaceAll(" ", "");
+                            held = held.slice(0, held.length - 1);
+                            held = held.split(";");
+                            for (h of held) {
+                                let x = $("#classesHeld");
+                                x.append(
+                                    '<button type="button" class="btn btn-success btn-lg p-1 m-1" onclick="removeHeldClasses(this)" id="' +
+                                    h + '">' +
+                                    h + ' <i class="bi bi-x mr-0"></i></button>');
+                            }
+                        }
+
+
+                        let notheld = data["not-held"];
+                        if (notheld != "") {
+                            $("#notheld").val(notheld);
+                            notheld = notheld.replaceAll(" ", "");
+                            notheld = notheld.slice(0, notheld.length - 1);
+                            notheld = notheld.split(";");
+                            for (n of notheld) {
+                                let x = $("#classesNotHeld");
+                                x.append(
+                                    '<button type="button" class="btn btn-danger btn-lg p-1 m-1" onclick="removeNotHeldClasses(this)" id="' +
+                                    n + '">' +
+                                    h + ' <i class="bi bi-x mr-0"></i></button>');
+                            }
+                        }
+                    } else {
+                        $("#session").val(data["session"]);
+                        $("#topics").val("");
+                        $("#remarks").val("");
+                        $("#classesNotHeld").html("");
+                        $("#notheld").val("");
+                        $("#classesHeld").html("");
+                        $("#held").val("");
+                        $("#not-th").val(0);
+                        $("#not-pr").val(0);
+                        $("#taken-th").val(0);
+                        $("#taken-pr").val(0);
+                        $("#alloted-th").val(0);
+                        $("#alloted-pr").val(0);
+                    }
+
+                }
+            });
+        });
+    </script>
+
+
+
+    <script type="text/javascript" src="/assets/js/add-diary.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+
+</body>
+<!-- par.childElementCount
+par.childNodes[1].id -->
+
+</html>

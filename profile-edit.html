@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Profile</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/profile-edit.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+</head>
+<body>
+	<section class="py-5 ">
+		<div class="container">
+			<h1 class="mb-5">Edit Profile</h1>
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="/assets/images/avtar/Purab.jpg" alt="Image" class="shadow">
+						</div>
+						<h4 class="text-center"><label id="nameEdit">Dr. Rajib Das</label></h4>
+					</div>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i> 
+							Account
+						</a>
+					</div>
+				</div>
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">Account Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Name</label>
+								  	<input type="text" id="nameEdit2" class="form-control" value="">
+								</div>
+							</div>
+					
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Email</label>
+								  	<input type="email" id="emailEdit" class="form-control" value="">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Mobile</label>
+								  	<input type="number" id="mobileEdit" class="form-control" value="+91 9876543215">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Select Department</label>
+									<select id="departmentEdit" name="department" required>
+										<option value="">Select Department</option>
+										<option value="Computer Science">Computer Science and Application</option>
+										<option value="Electronics">Botany & Biotech</option>
+										<option value="Mathematics">Mathematics</option>
+										<option value="Physics">Physics</option>
+										<option value="Physics">Statistics</option>
+										<option value="Physics">Zoology</option>
+										<option value="Physics">Ecology and Env.Sc</option>
+										<option value="Physics">Arabic</option>
+										<option value="Physics">Bengali</option>
+										<option value="Physics">Economics</option>
+										<option value="Physics">English</option>
+										<option value="Physics">History</option>
+										<option value="Physics">Philosophy</option>
+										<option value="Physics">Political Science</option>
+										<option value="Physics">Sanskrit</option>
+										<option value="Physics">Commerce</option>
+										<option value="Physics">Computer Center</option>
+									  </select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Select Designation</label>
+									<select id="designationEdit" name="designation" required>
+										<option value="">Select Designation</option>
+										<option value="Assistant Professor">Assistant Professor</option>
+										<option value="Associate Professor">Associate Professor</option>
+										<option value="Guest Faculty">Guest Faculty</option>
+										<option value="Head Of the Department">Head Of the Department</option>
+									  </select>
+								</div>
+							</div>
+							
+						</div>
+						<div>
+							<button class="btn btn-primary" onclick="update()">Update</button>
+							<button  onclick="window.open('/user-profile.html','_self')" class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javaScript" src="/assets/js/profile-edit.js"></script>
+	<script type="text/javaScript" src="/assets/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+</body>
+</html>

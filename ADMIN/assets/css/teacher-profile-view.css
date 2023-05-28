@@ -1,0 +1,156 @@
+body {
+    
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-image: url("/assets/images/bg-image-small.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.student-profile .card {
+    border-radius: 20px;
+}
+.student-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid rgb(228, 116, 24);/*#ccc*/
+    border-radius: 50%;
+}
+.student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+.student-profile .card p {
+    font-size: 16px;
+    color: #000;
+}
+.student-profile .table th,
+.student-profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+}
+.card-body{
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+}
+header{
+    position:relative;
+    padding: 0 2rem;
+    color:#fff;
+
+}
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+.navbar .links{
+    display:flex; 
+    gap: 2rem;
+    text-decoration-color: #fff;
+    color: #fff;
+   
+}
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+    background: #fff;
+}
+.action_btn{
+    background-color: rgb(255, 157, 0);
+    color: #fff;
+    padding: 0.7rem 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale .2 ease;
+}
+.action_btn:hover{
+    scale: 1.05;
+    color: white;
+}
+.action_btn:active{
+    scale: 0.95;
+}
+/*dropdownmenu*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.dropdown_menu.open{
+    height: 250px;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/*help*/
+section#help{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+#help h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+/*responsivedesign*/
+@media(max-width:992px)
+{
+    .navbar .links,
+    .navbar .action_btn{
+        display: none;
+    }
+    .navbar .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+@media(max-width:576px)
+{
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}

@@ -1,0 +1,90 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.dada {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgb(255, 89, 0);
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+
+.dada h1{
+  color: White;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 300px;
+  float: left;
+  transition: all 0.5s;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 0 0 10px black;
+}
+
+.profile-card:hover {
+  border-color: #000;
+  box-shadow: 0 0 5px 0 #000;
+}
+
+.profile-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.profile-card h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    width: 100%;
+    float: none;
+    margin: 0 0 10px 0;
+  }
+}
+
+.profile-card:nth-of-type(1) {
+  background-color: #ffffff;
+}
+
+.profile-card:nth-of-type(2) {
+  background-color: #ffffff;
+}
+
+.profile-card:nth-of-type(3) {
+  background-color: #ffffff;
+}
+
+.profile-card:nth-of-type(4) {
+  background-color: #ffffff;
+}
+
+.profile-card:nth-of-type(5) {
+  background-color: #ffffff;
+}
+
+.profile-card:nth-of-type(6) {
+  background-color: #ffffff;
+}
+
+
+
+
+
+

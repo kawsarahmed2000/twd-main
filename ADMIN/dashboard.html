@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Teachers Work Diary - ADMIN Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-BF4F2QldEqAymC3QsxhIJnqFodZcXV/96QMeR9+/HOv4w60eE4K6P6vCcGkG8d1c6ESsNIO41SPmXg5gsa7Ufw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="/ADMIN/assets/css/dashboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
+
+	<script>
+		function deleteTeacher() {
+    var confirmDelete = confirm("Are you sure you want to delete this teacher?");
+    if (confirmDelete) {
+        // Perform the delete operation here
+        // Assuming you have a teacher ID or any unique identifier for the teacher
+        var teacherId = "4"; // Replace "123" with the actual teacher ID
+
+        // Send an AJAX request or perform any necessary operations to delete the teacher
+        // Example using AJAX:
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", "/teachers/" + teacherId, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Teacher deleted successfully
+                alert("Teacher deleted successfully.");
+            } else {
+                // An error occurred while deleting the teacher
+                alert("Failed to delete the teacher.");
+            }
+        };
+        xhr.send();
+    }
+}
+
+
+		function searchTable() {
+			// Declare variables
+			var input, filter, table, tbody, tr, td, i, txtValue;
+			input = document.getElementById("searchInput");
+			filter = input.value.toUpperCase();
+			table = document.querySelector("table");
+			tbody = table.getElementsByTagName("tbody")[0];
+			tr = tbody.getElementsByTagName("tr");
+
+			// Loop through all table rows, and hide those that don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td");
+				for (var j = 0; j < td.length; j++) {
+					if (td[j]) {
+						txtValue = td[j].textContent || td[j].innerText;
+						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+							break;
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<header>
+		<img src="/assets/images/logo.png" alt="Teachers Work Diary Logo" />
+		<h1>Teachers Work Diary - ADMIN Dashboard</h1>
+		<nav>
+			<ul>
+				<button class="btn btn-secondary" onclick="logout()">Log-Out</button>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="dashboard-overview">
+			<div class="card">
+				<i class="fas fa-chalkboard" id="new-applications-icon"></i>
+				<li><a href="/ADMIN/new-application.html">New Applications</a></li>
+			</div>
+			<div class="card">
+				<i class="fas fa-calendar-check" id="work-diary-icon"></i>
+				<li><a href="/ADMIN/show-diary.html">Work Diary</a></li>
+			</div>
+		</section>
+
+
+		<section id="teacher-list">
+			<h2>Teachers</h2>
+			<input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for teachers..."><i
+				class="fa fa-search"></i>
+
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="table"></tbody>
+			</table>
+
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 Teachers Work Diary: Karimganj College</p>
+	</footer>
+	<!-- Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="teacher-profile">
+				<div class="teacher-photo">
+					<img src="https://via.placeholder.com/150" alt="Teacher photo">
+				</div>
+				<div class="teacher-details">
+					<h2>John Doe</h2>
+					<p>Subject: Mathematics</p>
+					<p>Email: john.doe@example.com</p>
+					<p>Phone: 555-1234</p>
+					<p>Address: 123 Main St, Anytown, USA</p>
+					<p>Signature:</p>
+					<img src="https://via.placeholder.com/200x100" alt="Teacher signature">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javaScript" src="/ADMIN/assets/js/main_admin.js"></script>
+	<script type="text/javaScript" src="/ADMIN/assets/js/dashboard.js"></script>
+
+</body>
+
+</html>

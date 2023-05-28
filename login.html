@@ -1,0 +1,191 @@
+<DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width-device-width, initial-scale-1.0" />
+      <meta charset="UTF-8" />
+      <title>Login/Registration</title>
+      <link rel="stylesheet" type="text/CSS" href="/assets/css/login.css" />
+    </head>
+    <body>
+      <header>
+        <h2 class="logo">Teachers Work Diary</h2>
+        <nav class="navigation">
+          <a href="/home/home.html">Home</a>
+          <a href="#">About</a>
+          <a href="/created_by/index.html">Created By</a>
+          <a href="#">Contact</a>
+          <button class="btnLogin-popup">Login</button>
+        </nav>
+      </header>
+      <!-- Popup -->
+      <div class="popup-overlay" id="popupOverlay"></div>
+      <div class="popup" id="popup">
+        <div class="popup-close" onclick="closePopup()">&times;</div>
+        <div class="popup-content">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+          </div>
+          <div class="status-label" id="statusLabel">Image uploading...</div>
+    <button class="verify-button" id="openVerifyOtpBtn" style="display: none;" onclick="window.open('/otp-verification.html', '_blank');">Verify Otp</button>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="form-box login">
+          <h2>Login</h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="mail-outline"></ion-icon>
+              </span>
+              <input id="emailLogin" type="email" required />
+              <label>Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="lock-open-outline"></ion-icon>
+              </span>
+              <input id="passLogin" type="password" required />
+              <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+              <label><input type="checkbox" />Remember me</label>
+              <a href="/forget-password/index.html">Forgot Password?</a>
+            </div>
+            <button type="button" onclick="login()" class="btn">Login</button>
+            <div class="login-register">
+              <p>
+                Dont Have an Account?
+                <a href="#" class="register-link">Register</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-box register">
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="person-outline"></ion-icon>
+              </span>
+              <input id="nameReg" type="text" required />
+              <label>Name</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="mail-outline"></ion-icon>
+              </span>
+              <input id="emailReg" type="email" required />
+              <label>Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="call-outline"></ion-icon>
+              </span>
+              <input id="mobileReg" type="number" required />
+              <label>Mobile</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="accessibility-outline"></ion-icon>
+              </span>
+
+              <select id="designation" name="designation" required>
+                <option value="Select Designation">Select Designation</option>
+                <option value="Assistant Professor">Assistant Professor</option>
+                <option value="Associate Professor">Associate Professor</option>
+                <option value="Guest Faculty">Guest Faculty</option>
+                <option value="Head Of the Department">
+                  Head Of the Department
+                </option>
+              </select>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="business-outline"></ion-icon>
+              </span>
+
+              <select id="department" name="department" required>
+                <option value="Select Department">Select Department</option>
+                <option value="Computer Science and Application">
+                  Computer Science and Application
+                </option>
+                <option value="Botany & Biotech">Botany & Biotech</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Statistics">Statistics</option>
+                <option value="Zoology">Zoology</option>
+                <option value="Ecology and Env.Sc">Ecology and Env.Sc</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Economics">Economics</option>
+                <option value="English">English</option>
+                <option value="History">History</option>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Sanskrit">Sanskrit</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Computer Center">Computer Center</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="lock-open-outline"></ion-icon>
+              </span>
+              <input id="passwordReg" type="password" required />
+              <label>Password</label>
+            </div>
+            <div style="margin-bottom: 10px; margin-top: 10px" class="">
+              <label>Add Photo</label>
+              <input id="photoReg" type="file" required />
+            </div>
+            <div style="margin-bottom: 10px" class="">
+              <label>Add Signature</label>
+              <input id="signReg" type="file" required />
+            </div>
+            <div class="remember-forgot"></div>
+            <button onclick="register()" type="button" class="btn">
+              Register
+            </button>
+            <div class="login-register">
+              <p>
+                Already Have an Account?
+                <a href="#" class="login-link">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+      <!-- Add these script tags before your custom JavaScript code -->
+      <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-storage-compat.js"></script>
+
+      <script src="/assets/js/upload-image.js"></script>
+      <script type="text/JavaScript" src="/assets/js/login.js"></script>
+      <script type="text/JavaScript" src="/assets/js/main.js"></script>
+
+      <script>
+        // Open popup
+        function openPopup() {
+          document.getElementById("popup").style.display = "block";
+          document.getElementById("popupOverlay").style.display = "block";
+        }
+        closePopup();
+        // Close popup
+        function closePopup() {
+          document.getElementById("popup").style.display = "none";
+          document.getElementById("popupOverlay").style.display = "none";
+        }
+      </script>
+    </body>
+  </html></DOCTYPE
+>
