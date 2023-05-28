@@ -8,7 +8,7 @@ document.getElementById("labels2").textContent = `Enter the code below to confir
 function otpVerification(){
   var type = localStorage.getItem("type")
   var otp = document.getElementById("otp").value;
- 
+  
     
     const loginData = {
         email: email,
