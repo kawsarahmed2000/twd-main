@@ -32,10 +32,9 @@ async function uploadPhoto(input) {
                     "state_changed",
                     (snapshot) => {
                         // Get the progress percentage
-                        var progress =
-                            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         var p = Math.floor(progress.toFixed(2)) 
-                            var percentage=p+"%";
+                        var percentage=p+"%";
                         console.log("Upload progress: " + percentage);
                         progressBarFill.style.width=percentage
                     },
@@ -67,10 +66,11 @@ async function uploadPhoto(input) {
                 uploadTask.on(
                     "state_changed",
                     (snapshot) => {
-                        // Get the progress percentage
-                        var progress =
-                            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        console.log("Upload progress: " + progress.toFixed(2) + "%");
+                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        var p = Math.floor(progress.toFixed(2))
+                        var percentage = p + "%";
+                        console.log("Upload progress: " + percentage);
+                        progressBarFill.style.width = percentage
                     },
                     (error) => {
                         console.log(error);
