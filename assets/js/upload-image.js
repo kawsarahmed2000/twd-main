@@ -34,7 +34,8 @@ async function uploadPhoto(input) {
                         // Get the progress percentage
                         var progress =
                             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            var percentage=progress.toFixed(2)+"%";
+                        var p = Math.floor(progress.toFixed(2)) 
+                            var percentage=p+"%";
                         console.log("Upload progress: " + percentage);
                         progressBarFill.style.width=percentage
                     },
