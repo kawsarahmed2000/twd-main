@@ -27,10 +27,8 @@ function getNewApplicant() {
       return response.json();
     })
     .then(data => {
-      // handle successful profile retrieval
-      console.log(data.data)
       var table = document.getElementById("newAppliation");
-      table.innerHTML == ""
+      table.innerHTML = ""
       var k = 0;
       data.data.forEach(element => {
 
