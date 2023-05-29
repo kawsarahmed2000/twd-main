@@ -100,9 +100,10 @@ function addDiary() {
         alert("Select notTakenPr");
         return
     }
-
-    if (parseInt(takenTh) + parseInt(takenPr) != classesHeld.length) {
-        alert("Select all Held class");
+ 
+    var t = parseInt(takenTh) + parseInt(takenPr) 
+    if (t!= classesHeld.length) {
+        alert("Select " + takenTh + " theory and " + takenPr + " practical subject (total " + t +") from class held");
         return
     }
     if (parseInt(notTakenTh) + parseInt(notTakenPr) != classesNotHeld.length) {
