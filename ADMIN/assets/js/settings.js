@@ -45,9 +45,9 @@ function getDetails(){
                 alert(data.message)
             }
 
-            document.getElementById("privacyPolicy").value=data.contactUs;
-            document.getElementById("aboutUs").value=data.aboutUs;
-            document.getElementById("contactUs").value=data.contactUs;
+            document.getElementById("privacyPolicy").value = data.privacyPolicy;
+            document.getElementById("aboutUs").value = data.aboutUs;
+            document.getElementById("contactUs").value = data.contactUs;
 
         })
         .catch(function (error) {
