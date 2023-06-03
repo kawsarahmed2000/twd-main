@@ -10,6 +10,7 @@ function getProfileDetails() {
   var designation = document.getElementById("designationPr");
   var department2 = document.getElementById("departmentPr2");
   var designation2 = document.getElementById("designationPr2");
+  var profile = document.getElementById("profile");
   var email = localStorage.getItem("email");
   var token = localStorage.getItem("token");
   const profileData = {
@@ -44,6 +45,8 @@ function getProfileDetails() {
       designation.textContent = data.data.designation;
       department2.textContent = data.data.department;
       designation2.textContent = data.data.designation;
+      profile.src=data.data.photo
+
 
 
 
