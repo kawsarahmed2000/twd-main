@@ -8,7 +8,7 @@ function getTeacherDetails() {
         email: email
     };
 
-    fetch("https://senderr.in/API_main/userProfile.php", {
+    fetch(api+"/userProfile.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function showDiary() {
 
     console.log(showDiaryData)
 
-    fetch("https://senderr.in/API_main/showWorkDiary.php", {
+    fetch(api+"/showWorkDiary.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

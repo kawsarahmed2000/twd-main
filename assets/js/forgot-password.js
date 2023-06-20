@@ -6,7 +6,7 @@ function otpSend(){
         email: email
       };
     //   localStorage.setItem("email",email);
-      fetch("https://senderr.in/API_main/otpForChangePassword.php", {
+      fetch(api+"/otpForChangePassword.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

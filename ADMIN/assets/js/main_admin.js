@@ -1,4 +1,5 @@
 isLoggedIn();
+var api = localStorage.getItem("api");
 function isLoggedIn(){
     var d=localStorage.getItem("logedIn")||"no";
     var isAdmin=localStorage.getItem("isAdmin");
@@ -14,7 +15,7 @@ function isLoggedIn(){
         window.open("/login.html", "_self");
     }
 }
-
+ 
 
 function getUrl(param) {
     var getUrl = window.location.search.slice(1);

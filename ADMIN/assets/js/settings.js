@@ -9,7 +9,7 @@ function update(){
         aboutUs: aboutUs,
         contactUs: contactUs
     }
-    fetch("https://senderr.in/API_main/setDocumentation.php", {
+    fetch(api+"/setDocumentation.php", {
         method: "POST",
         body: JSON.stringify(data)
     })
@@ -33,7 +33,7 @@ function update(){
 getDetails()
 function getDetails(){
 
-    fetch("https://senderr.in/API_main/documentation.php", {
+    fetch(api+"/documentation.php", {
         method: "POST"
     })
         .then(function (response) {

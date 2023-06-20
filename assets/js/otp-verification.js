@@ -17,7 +17,7 @@ function otpVerification(){
       };
       console.log(loginData)
       
-      fetch("https://senderr.in/API_main/verifyOtp.php", {
+      fetch(api+"/verifyOtp.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -1,3 +1,4 @@
+
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -25,7 +26,9 @@ function login() {
     password: pass
   };
   localStorage.setItem("email", email);
-  fetch("https://senderr.in/API_main/login.php", {
+
+  console.log(typeof(api))
+  fetch(api+"/login.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -137,7 +140,7 @@ async function register() {
       console.log(registerData);
 
 
-      fetch("https://senderr.in/API_main/register.php", {
+      fetch(api+"/register.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

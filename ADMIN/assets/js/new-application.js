@@ -11,7 +11,7 @@ function getNewApplicant() {
     email: "ahmedkawsar202949@gmail.com"
   };
 
-  fetch("https://senderr.in/API_main/newRgistrationUserList.php", {
+  fetch(api+"/newRgistrationUserList.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function verifyUser(userEmail,action) {
     action: action
   };
 
-  fetch("https://senderr.in/API_main/verifyUser.php", {
+  fetch(api+"/verifyUser.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

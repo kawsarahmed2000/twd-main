@@ -10,7 +10,7 @@ function getTeacherDetails() {
         teacherId: teacherId
     };
 
-    fetch("https://senderr.in/API_main/teacherDetailsByEmpId.php", {
+    fetch(api+"/teacherDetailsByEmpId.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function showDiary() {
 
     console.log(showDiaryData)
 
-    fetch("https://senderr.in/API_main/showWorkDiaryByEmpId.php", {
+    fetch(api+"/showWorkDiaryByEmpId.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

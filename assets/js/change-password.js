@@ -1,3 +1,4 @@
+
 function changePassword() {
     var type = localStorage.getItem("type")
     var otp = document.getElementById("otp").value;
@@ -20,7 +21,7 @@ function changePassword() {
     };
     console.log(loginData)
 
-    fetch("https://senderr.in/API_main/changePassword.php", {
+    fetch(api+"/changePassword.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

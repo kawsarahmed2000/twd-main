@@ -138,7 +138,7 @@ function addDiary() {
 
     console.log(showDiaryData)
 
-    fetch("https://senderr.in/API_main/addDiary.php", {
+    fetch(api+"/addDiary.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

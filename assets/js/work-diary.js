@@ -19,7 +19,7 @@ function monthlyStat(currentMonth) {
         onlyStats: 1,
     };
 
-    fetch("https://senderr.in/API_main/homeStats.php", {
+    fetch(api+"/homeStats.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -73,7 +73,7 @@ function showDiary() {
 
     console.log(showDiaryData)
 
-    fetch("https://senderr.in/API_main/workDiaryHome.php", {
+    fetch(api+"/workDiaryHome.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

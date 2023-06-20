@@ -33,7 +33,7 @@ function getTeacherList() {
         email: email
     };
 
-    fetch("https://senderr.in/API_main/getUserList.php", {
+    fetch(api+"/getUserList.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

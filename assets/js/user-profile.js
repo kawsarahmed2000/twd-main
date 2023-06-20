@@ -16,7 +16,7 @@ function getProfileDetails() {
     email: email
   };
  
-  fetch("https://senderr.in/API_main/userProfile.php", {
+  fetch(api+"/userProfile.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -18,7 +18,7 @@ function getProfileDetails() {
     teacherId: teacherId
   };
 
-  fetch("https://senderr.in/API_main/teacherDetailsByEmpId.php", {
+  fetch(api+"/teacherDetailsByEmpId.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

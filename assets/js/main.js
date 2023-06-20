@@ -1,3 +1,6 @@
+localStorage.setItem("api", "https://senderr.in/API_main")
+
+var api = localStorage.getItem("api");
 isLoggedIn();
 function isLoggedIn(){
     var d=localStorage.getItem("logedIn")||"no";

@@ -17,7 +17,7 @@ function getProfileDetails() {
     email: email
   };
 
-  fetch("https://senderr.in/API_main/userProfile.php", {
+  fetch(api+"/userProfile.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +95,7 @@ async function update() {
         photo: photUrlMain
       };
 
-      fetch("https://senderr.in/API_main/userProfileEdit.php", {
+      fetch(api+"/userProfileEdit.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +132,7 @@ async function update() {
       photo: photUrlMain
     };
 
-    fetch("https://senderr.in/API_main/userProfileEdit.php", {
+    fetch(api+"/userProfileEdit.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
