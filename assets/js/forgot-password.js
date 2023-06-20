@@ -1,4 +1,5 @@
 
+var api = localStorage.getItem("api");
 function otpSend(){
     alert("OTP has been sent to your email");
     var email= document.getElementById("emailForg").value;

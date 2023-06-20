@@ -1,5 +1,6 @@
 //console.log(localStorage.getItem("logedIn"));
 var teacherId = getUrl("teacherId");
+var api = localStorage.getItem("api");
 getProfileDetails()
 function getProfileDetails() {
   var namePr = document.getElementById("namePr");

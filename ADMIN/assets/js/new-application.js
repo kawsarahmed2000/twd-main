@@ -1,6 +1,7 @@
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
 
+var api = localStorage.getItem("api");
 document.getElementById("mainTable").style.display = "none"
 
 getNewApplicant()

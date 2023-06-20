@@ -1,5 +1,6 @@
 const codes = document.querySelectorAll('.code')
 
+var api = localStorage.getItem("api");
 codes[0].focus()
 
 var email = localStorage.getItem("email");

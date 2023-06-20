@@ -1,4 +1,5 @@
 
+var api = localStorage.getItem("api");
 function changePassword() {
     var type = localStorage.getItem("type")
     var otp = document.getElementById("otp").value;

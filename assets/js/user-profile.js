@@ -1,4 +1,5 @@
 //console.log(localStorage.getItem("logedIn"));
+var api = localStorage.getItem("api");
 getProfileDetails()
 function getProfileDetails() {
   var namePr = document.getElementById("namePr");

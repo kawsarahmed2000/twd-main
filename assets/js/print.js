@@ -1,6 +1,7 @@
 let url = new URL(window.location.href);
 let searchParams = new URLSearchParams(url.search);
 var d = searchParams.get("data");
+var api = localStorage.getItem("api");
 var name = searchParams.get("name");
 var dept = searchParams.get("dept");
 var from = searchParams.get("from");

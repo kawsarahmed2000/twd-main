@@ -2,6 +2,7 @@
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
 
+var api = localStorage.getItem("api");
 function searchTable() {
     // Declare variables
     var input, filter, table, tbody, tr, td, i, txtValue;

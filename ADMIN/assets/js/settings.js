@@ -1,3 +1,5 @@
+
+var api = localStorage.getItem("api"); 
 function update(){
 
     var privacyPolicy = document.getElementById("privacyPolicy").value;

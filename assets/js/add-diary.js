@@ -1,6 +1,7 @@
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
 
+var api = localStorage.getItem("api");
 document.getElementById("takenTh").addEventListener("change", function () {
     var allotedTh = document.getElementById("allotedTh").value;
     if(this.value=="Select"){

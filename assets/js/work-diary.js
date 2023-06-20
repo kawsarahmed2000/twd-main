@@ -1,6 +1,7 @@
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
 
+var api = localStorage.getItem("api");
 const monthList = document.getElementById("month");
 const currentMonth = new Date().getMonth() + 1;
 

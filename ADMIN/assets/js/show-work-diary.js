@@ -1,6 +1,7 @@
 var teacherId = getUrl("teacherId");
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
+var api = localStorage.getItem("api");
 
 getTeacherDetails()
 

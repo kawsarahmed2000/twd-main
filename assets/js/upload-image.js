@@ -1,5 +1,6 @@
 // Initialize Firebase
 
+var api = localStorage.getItem("api");
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyBXV9H9voMoOyhO1p_LHBjrWnx5kEZ5JWg",
     authDomain: "twd-kc.firebaseapp.com",

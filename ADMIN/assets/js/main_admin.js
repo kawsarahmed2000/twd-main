@@ -1,5 +1,4 @@
 isLoggedIn();
-var api = localStorage.getItem("api");
 function isLoggedIn(){
     var d=localStorage.getItem("logedIn")||"no";
     var isAdmin=localStorage.getItem("isAdmin");

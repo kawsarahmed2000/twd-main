@@ -1,5 +1,6 @@
 //console.log(localStorage.getItem("logedIn"));
 
+var api = localStorage.getItem("api");
 var up=0;
 var email = localStorage.getItem("email");
 var token = localStorage.getItem("token");
